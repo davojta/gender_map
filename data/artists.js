@@ -72,36 +72,75 @@ var artists = [
     text: ''
   },
   {
-    id: '',
-    name: '',
-    fb: '',
+    id: 'a_slobodchikova',
+    name: 'Антонина Слободчикова',
+    fb: 'https://www.facebook.com/sl.antonina',
     link: '',
+    photo: 'a_slobodchikova.jpg',
+    text: ''
+  },
+  {
+    id: 'n_liventseva',
+    name: 'Надежда Ливенцева',
+    fb: '',
+    link: 'http://liventseva.ru/',
     photo: '',
     text: ''
   },
   {
-    id: '',
-    name: '',
-    fb: '',
+    id: 'g_romanova',
+    name: 'Галина Романова',
+    fb: 'https://www.facebook.com/profile.php?id=100000065356605',
     link: '',
-    photo: '',
+    photo: 'g_romanova.jpg',
     text: ''
   },
   {
-    id: '',
-    name: '',
-    fb: '',
+    id: 'z_lutsevich',
+    name: 'Зоя Луцевич',
+    fb: 'https://www.facebook.com/zoya.lutsevich',
     link: '',
-    photo: '',
+    photo: 'z_lutsevich.jpg',
     text: ''
   },
   {
-    id: '',
-    name: '',
-    fb: '',
-    link: '',
-    photo: '',
+    id: 'j_kapustnikova',
+    name: 'Жанна Капустникова',
+    fb: 'https://www.facebook.com/janna.kapustnikova',
+    link: 'http://jannakapustnikova.belorus.by',
+    photo: 'j_kapustnikova.jpg',
     text: ''
   },
-  
+  {
+    id: 'n_belookaya',
+    name: 'Наталья Белоокая',
+    fb: 'https://www.facebook.com/profile.php?id=100005437998185',
+    link: '',
+    photo: 'n_belookaya.jpg',
+    text: ''
+  },
+  {
+    id: 'i_demina',
+    name: 'Ирина Дёмина',
+    fb: 'https://www.facebook.com/artbags.by',
+    link: 'http://www.artbags.by/',
+    photo: 'i_demina.jpg',
+    text: ''
+  },
+  {
+    id: 't_kandratsienka',
+    name: 'Татьяна Кандратенко',
+    fb: 'https://www.facebook.com/tania.kandratsienka',
+    link: '',
+    photo: 't_kandratsienka.jpg',
+    text: ''
+  },
+  {
+    id: 'n_zaloznaya',
+    name: 'Наталья Залозная',
+    fb: 'https://www.facebook.com/Natalya-Zaloznaya-350764441678158',
+    link: '',
+    photo: 'n_zaloznaya.jpg',
+    text: ''
+  }
 ]
