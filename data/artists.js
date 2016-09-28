@@ -139,7 +139,7 @@ var artists = [
     id: 'n_zaloznaya',
     name: 'Наталья Залозная',
     fb: 'https://www.facebook.com/Natalya-Zaloznaya-350764441678158',
-    link: '',
+    link: 'http://www.natalyazaloznaya.com/',
     photo: 'n_zaloznaya.jpg',
     text: ''
   }
