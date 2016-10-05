@@ -1,3 +1,5 @@
+"use strict";
+
 L.NumberedDivIcon = L.Icon.extend({
       options: {
       // EDIT THIS TO POINT TO THE FILE AT http://www.charliecroom.com/marker_hole.png (or your own marker)
@@ -32,165 +34,49 @@ L.NumberedDivIcon = L.Icon.extend({
   }
 });
 
-var artists = [
-    {
-        id: 'm_shmatova',
-        name: 'Марта Шматова',
-        fb: '',
-        link: ''
-    },
-    {
-        id: 'i_kosobuko',
-        name: 'Илона Кособуко',
-        fb: '',
-        link: ''
-    },
-    {
-        id: 'e_sumareva',
-        name: 'Екатерина Сумарева',
-        fb: '',
-        link: ''
-    },
-    {
-        id: 't_radivilko',
-        name: 'Татьяна Радивилко',
-        fb: '',
-        link: ''
-    },
-    {
-        id: 'a_silivonchik',
-        name: 'Анна Силивончик',
-        fb: '',
-        link: ''
-
-    }
-
-].reduce((hash, artist) => {
+artists = artists.reduce((hash, artist) => {
     hash[artist.id] = artist
     return hash
 }, {})
 
-var studios = [
-    {
-        coords: [
-            27.590049505233765,
-            53.927724646237046
-        ],
-        n: 1,
-        address: 'ул Сурганова 42, 44',
-        artists: [
-            'm_shmatova',
-            'i_kosobuko',
-            'e_sumareva'
 
-        ],
-        landmark: 'болконы лодочки'
-    },
-    {
-        coords: [
-            27.59344518184662,
-            53.93149268335978
-        ],
-        n: 2,
-        address: 'ул Некрасова 11',
-        artists: [
-            't_radivilko'
 
-        ],
-        landmark: 'кафе Кавказкая пленница'
-    },
-    {
-        coords: [
-            27.588633298873898,
-            53.92515978599045
-        ],
-        n: 3,
-        address: 'ул Беломорская 21',
-        artists: [
-            'a_silivonchik'
-        ],
-        landmark: 'ЖК Флагман'
-    }
-]
+function showArtist() {
+    var $this = $(this)
+    console.log('dom el', $(this), $this.attr('href'))
 
-var lines = [
-    {
-        "type": "Feature",
-        "properties": {
-            color: 'red',
-            description: 'First line'
-        },
-        "geometry": {
-            "type": "LineString",
-            "coordinates": [
-                [
-                    27.590038776397705,
-                    53.92773728062649
-                ],
-                [
-                    27.591304779052734,
-                    53.927345612775504
-                ],
-                [
-                    27.59139060974121,
-                    53.927509861031446
-                ],
-                [
-                    27.59038209915161,
-                    53.927857307135405
-                ],
-                [
-                    27.590070962905884,
-                    53.92821106746962
-                ],
-                [
-                    27.59016752243042,
-                    53.92833109261607
-                ],
-                [
-                    27.58936285972595,
-                    53.92862167838335
-                ],
-                [
-                    27.58936285972595,
-                    53.92873538530676
-                ],
-                [
-                    27.59168028831482,
-                    53.930832590789265
-                ],
-                [
-                    27.592839002609253,
-                    53.931938003071714
-                ],
-                [
-                    27.593493461608887,
-                    53.93169797317907
-                ],
-                [
-                    27.593447864055634,
-                    53.9314942625161
-                ]
-            ]
-        }
-    }
-]
+    return false
 
+}
 function getPlacePopup(place) {
     var artistsHtml = place.artists
         .map((artistId) => artists[artistId])
         .map((artist) => {
-            return `<li><a onlick="void" href="#${artist.id}">${artist.name}</a></li>`
+            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/><a href="#${artist.id}" class="artist-name js-artist-link">${artist.name} </a></li>`
         })
     return `
-<p>Художницы: </p>
-<ul>
-${artistsHtml}
+<p>Художницы:</p>
+<ul class="list-unstyled">
+${artistsHtml.join('')}
 </ul>            
 `
 }
 
+
+
+
+
+
 $(function() {
+
+    jQuery('document').on('click', '.js-artist-link', function () {
+        var $this = $(this)
+        console.log('dom el', $(this), $this.attr('href'))
+
+        return false
+    })
+
+
     var mymap = L.map('map').setView([53.8998, 27.5511], 12);
     const accessToken = 'pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ'
 
