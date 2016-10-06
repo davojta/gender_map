@@ -35,24 +35,29 @@ L.NumberedDivIcon = L.Icon.extend({
 });
 
 artists = artists.reduce((hash, artist) => {
+    if (artist.text.length === 0) artist.text = 'Нету информации о художнице'
     hash[artist.id] = artist
     return hash
 }, {})
 
 
 
-function showArtist() {
-    var $this = $(this)
-    console.log('dom el', $(this), $this.attr('href'))
+function showArtist(artistId) {
+    var artist = artists[artistId]
+    console.log('artist', artist.text)
+    $('#artistModal').modal('show')
 
-    return false
+    $('#artistModalLabel').text(artist.name)
+    $('#artistText').text(artist.text)
+    $('#artistModalPhoto').attr('src', `data/${artist.photo}`)
+
 
 }
 function getPlacePopup(place) {
     var artistsHtml = place.artists
         .map((artistId) => artists[artistId])
         .map((artist) => {
-            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/><a href="#${artist.id}" class="artist-name js-artist-link">${artist.name} </a></li>`
+            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/><a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
         })
     return `
 <p>Художницы:</p>
@@ -68,15 +73,6 @@ ${artistsHtml.join('')}
 
 
 $(function() {
-
-    jQuery('document').on('click', '.js-artist-link', function () {
-        var $this = $(this)
-        console.log('dom el', $(this), $this.attr('href'))
-
-        return false
-    })
-
-
     var mymap = L.map('map').setView([53.8998, 27.5511], 12);
     const accessToken = 'pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ'
 
@@ -111,6 +107,31 @@ $(function() {
         }).bindPopup(function(layer) {
             return layer.feature.properties.description;
         }).addTo(mymap);
+    })
+
+    $('.js-artist-link').on('click', function (e) {
+        var $this = $(this)
+        console.log('id', $this.data('id'))
+
+        showArtist($this.data('id'))
+
+
+
+        return false
+    })
+
+
+    $('#map').on('click', '.js-artist-link', function (e) {
+        var $this = $(this)
+        console.log('id', $this.data('id'))
+
+        showArtist($this.data('id'))
+
+        return false
+    })
+
+    mymap.on('popupopen', function () {
+        console.log('popupopen')
     })
 
     window.map = mymap
