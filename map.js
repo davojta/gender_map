@@ -82,14 +82,17 @@ ${artistsHtml.join('')}
 
 
 $(function() {
-    var mymap = L.map('map').setView([53.8998, 27.5511], 12);
+    var mymap = L.map('map', {
+        center: [53.917356840722235, 27.563881874084476],
+        zoom: 13
+    })
     const accessToken = 'pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ'
 
     L.tileLayer(
         'https://api.mapbox.com/styles/v1/dzianissheka/citdc4so800852hrzvz9actch/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ',
         {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 18,
+            maxZoom: 19,
             id: 'your.mapbox.project.id',
             accessToken,
         }).addTo(mymap);
@@ -114,11 +117,8 @@ $(function() {
 
     $('.js-artist-link').on('click', function (e) {
         var $this = $(this)
-        console.log('id', $this.data('id'))
 
         showArtist($this.data('id'))
-
-
 
         return false
     })
@@ -126,15 +126,10 @@ $(function() {
 
     $('#map').on('click', '.js-artist-link', function (e) {
         var $this = $(this)
-        console.log('id', $this.data('id'))
 
         showArtist($this.data('id'))
 
         return false
-    })
-
-    mymap.on('popupopen', function () {
-        console.log('popupopen')
     })
 
     window.map = mymap
