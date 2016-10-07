@@ -1,7 +1,6 @@
 #map {
     width: 815px;
     height: 745px;
-    background-color: red;
 }
 .leaflet-div-icon {
     background: transparent;
@@ -45,7 +44,7 @@
 }
 
 .studio-photoes {
-    max-height: 400px;
+    max-height: 390px;
     overflow-y: auto;
 }
 
@@ -54,10 +53,10 @@
     padding: 10px 0 10px 0;
     display: block;
     max-width: 550px;
-    max-height: 390px;
+    max-height: 380px;
 }
 
 .modal-dialog {
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
