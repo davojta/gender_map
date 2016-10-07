@@ -34,3 +34,30 @@
     padding-left: 10px;
     display: inline-block;
 }
+
+.image-wrapper {
+    max-height: 200px
+}
+
+.artist-text {
+    overflow-y: auto;
+    max-height: 180px;
+}
+
+.studio-photoes {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.studio-photo {
+    margin: auto;
+    padding: 10px 0 10px 0;
+    display: block;
+    max-width: 550px;
+    max-height: 390px;
+}
+
+.modal-dialog {
+    margin: 15px auto;
+}
+
