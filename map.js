@@ -36,10 +36,18 @@ L.NumberedDivIcon = L.Icon.extend({
 
 artists = artists.reduce((hash, artist) => {
     if (artist.text.length === 0) artist.text = 'Нету информации о художнице'
+    if (!artist.studio_photoes) artist.studio_photoes = []
     hash[artist.id] = artist
     return hash
 }, {})
 
+function getStudioPhotoesHtml(artistId, photoes) {
+    var html = photoes.map( photo => {
+        return `<img alt="" data-src="holder.js/140x140" class="img-rounded studio-photo" src="data/studio_photoes/${artistId}/small-${photo}" >`
+    }).join('')
+
+    return html
+}
 
 
 function showArtist(artistId) {
@@ -50,6 +58,7 @@ function showArtist(artistId) {
     $('#artistModalLabel').text(artist.name)
     $('#artistText').text(artist.text)
     $('#artistModalPhoto').attr('src', `data/${artist.photo}`)
+    $('#studioPhotoes').html(getStudioPhotoesHtml(artistId, artist.studio_photoes))
 
 
 }
@@ -85,11 +94,6 @@ $(function() {
             accessToken,
         }).addTo(mymap);
 
-    var testMarker = L.marker([53.8998, 27.5511], {
-        icon: new L.NumberedDivIcon({number: '0'})
-    }).bindPopup('This is test marker');
-    testMarker.addTo(mymap)
-
     studios.forEach((studio) => {
         var marker = L.marker([studio.coords[1], studio.coords[0]], {
             icon: new L.NumberedDivIcon({number: studio.n})
@@ -99,7 +103,6 @@ $(function() {
     })
 
     lines.forEach(line => {
-        "use strict";
         L.geoJSON(line, {
             style: function(feature) {
                 return {color: feature.properties.color};
