@@ -3,7 +3,7 @@
 L.NumberedDivIcon = L.Icon.extend({
       options: {
       // EDIT THIS TO POINT TO THE FILE AT http://www.charliecroom.com/marker_hole.png (or your own marker)
-      iconUrl: './images/marker_hole.png',
+      iconUrl: './images/marker_hole.svg',
       number: '',
       shadowUrl: null,
       size: 'normal',
@@ -19,13 +19,19 @@ L.NumberedDivIcon = L.Icon.extend({
 
   createIcon: function() {
       var div = document.createElement('div');
-      var img = this._createImg(this.options['iconUrl']);
-      var numdiv = document.createElement('div');
+
       var numDivClass = 'number';
       if (this.options.size === 'big') {
-          this.options.className += ' start-line-icon'
-          numDivClass += ' start-line-number'
+
+          this.options.iconUrl= ' ./images/YELLOW.svg'
+          this.options.iconSize = new L.Point(34, 55)
+          this.options.iconAnchor = new L.Point(17, 28),
+              numDivClass += ' start-line-number'
       }
+
+      var img = this._createImg(this.options['iconUrl']);
+      var numdiv = document.createElement('div');
+
       numdiv.setAttribute("class", numDivClass);
       numdiv.innerHTML = this.options['number'] || '';
       div.appendChild(img);
@@ -56,10 +62,8 @@ function getStudioPhotoesHtml(artistId, photoes) {
     return html
 }
 
-
 function showArtist(artistId) {
     var artist = artists[artistId]
-    console.log('artist', artist.text)
     $('#artistModal').modal('show')
 
     $('#artistModalLabel').text(artist.name)
@@ -86,9 +90,27 @@ function getLineStartPopup(lineStart) {
 }
 
 function getLinesListHtml(lineStarts) {
-    return `
 
+    var linesList = lineStarts.map(lineStart => {
+        var fullStudios = lineStart.studios.map(studioId => {
+            return studios.find(studio => studio.id === studioId)
+        })
 
+        var studiosHtml = fullStudios.map(studio => {
+            return `<li>${studio.address}</li>`
+        }).join('')
+
+        return `
+<dt class="line-list-number">${lineStart.n}</dt>
+<dd><ul class="list-unstyled line-studios-list">${studiosHtml}</ul></dd>
+`
+    })
+
+    return  `
+<h2>Маршруты</h2>
+<dl class="line-list">
+    ${linesList}
+</dl> 
 `
 }
 
@@ -126,12 +148,38 @@ var lineStarts = [
         n: 'I',
         address: 'ул Сурганова 42 (44)',
         studios: [
-            ''
+            'surhanava',
+            'niakrasava',
+            'belamorskaja'
+        ]
+    },
+    {
+        coords: [
+            27.55192458629608,
+            53.89188445293951
+        ],
+        n: 'III',
+        address: 'ул. Кирова, 2',
+        studios: [
+            'kirava',
+            'nezalezhnasci',
+            'rakauskaja'
+        ]
+    },
+    {
+        coords: [
+            27.578998804092407,
+            53.909615636392466
+        ],
+        n: 'II',
+        address: 'ул. Козлова, 2',
+        studios: [
+            'kazlova',
+            'kisialiova',
+            'pershamajaskaja'
         ]
     }
 ]
-
-
 
 
 $(function() {
@@ -209,32 +257,7 @@ $(function() {
     })
 
     $('.js-map-control').html(
-        `
-<h2>Маршруты</h2>
-<dl>
-    <dt>Первый</dt>
-    <dd>
-    <ul>
-        <li>Сурганова</li>
-    </ul>
-    
-    </dd>
-    <dt>Второй</dt>
-    <dd>
-    <ul>
-        <li>Козлова</li>
-    </ul>
-</dd>
-    <dt>Третий</dt>
-    <dd>
-    <ul>
-        <li>Кирова</li>
-    </ul>
-</dd>
-</dl>        
-
-
-`
+       getLinesListHtml(lineStarts)
     )
 
     $('.js-artist-link').on('click', function (e) {

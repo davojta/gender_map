@@ -2,18 +2,7 @@
     width: 815px;
     height: 745px;
 }
-.leaflet-div-icon {
-    background: transparent;
-    border: none;
-}
 
-.leaflet-marker-icon .number{
-    position: relative;
-    top: -37px;
-    font-size: 12px;
-    width: 25px;
-    text-align: center;
-}
 .artist {
     width: 200px;
     padding-bottom: 10px
@@ -64,14 +53,58 @@
     width: 200px;
     height: 600px;
     background-color: floralwhite;
+    opacity: 0.9;
+}
+
+.leaflet-div-icon {
+    background: transparent;
+    border: none;
+}
+
+.leaflet-marker-icon .number{
+    position: relative;
+    top: -37px;
+    font-size: 12px;
+    width: 25px;
+    text-align: center;
+}
+.leaflet-marker-icon .number.start-line-number {
+    top: -53px;
+    left: 5px;
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
 }
 
 .start-line-icon img {
-    filter: sepia(60%);
-    zoom: 2;
+    /*filter: sepia(60%);*/
 }
-.start-line-number {
-    zoom: 2;
+.start-line-icon {
+    width: 50px;
+}
 
+.line-list {
+    font-size: small;
+}
+
+.line-list dt {
+    content: '';
+    display: inline-block;
+    height: 35px;
+    width: 22px;
+    background-image: url(images/YELLOW.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 1px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.line-list-number {
+    padding-left: 20px
+}
+
+.line-studios-list {
+    padding-left: 35px
 }
 
