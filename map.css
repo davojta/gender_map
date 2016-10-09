@@ -50,7 +50,7 @@
 }
 
 .studios-list-control {
-    width: 200px;
+    width: 220px;
     height: 600px;
     background-color: floralwhite;
     opacity: 0.9;
@@ -105,6 +105,20 @@
 }
 
 .line-studios-list {
-    padding-left: 35px
+    padding-left: 30px;
+}
+.line-studios-list li:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 13px;
+    background-image: url(./images/marker_hole.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 1px;
+    text-align: center;
+    top: 4px;
+    padding-bottom: 0px;
+    position: relative;
 }
 
