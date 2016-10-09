@@ -1,5 +1,6 @@
 var studios = [
 	{
+		id: 'surhanava',
 		coords: [
 			27.590049505233765,
 			53.927724646237046
@@ -15,6 +16,7 @@ var studios = [
 		landmark: 'болконы лодочки'
 	},
 	{
+		id: 'niakrasava',
 		coords: [
 			27.59344518184662,
 			53.93149268335978
@@ -32,6 +34,7 @@ var studios = [
 		landmark: 'кафе Кавказкая пленница'
 	},
 	{
+		id: 'belamorskaja',
 		coords: [
 			27.588633298873898,
 			53.92515978599045
@@ -44,6 +47,7 @@ var studios = [
 		landmark: 'ЖК Флагман'
 	},
         {
+			id: 'kazlova',
 		coords: [
 			27.578998804092407,
                         53.909615636392466
@@ -57,6 +61,7 @@ var studios = [
 		landmark: 'магазин "Океан"'
 	},
         {
+			id: 'kisialiova',
 		coords: [
 			27.57134109735489,
                         53.91108815556854
@@ -69,6 +74,7 @@ var studios = [
 		landmark: 'мемориальная доска подпольщицы Марии Осиповой'
 	},
         {
+			id: 'pershamajaskaja',
 		coords: [
 			  27.577563822269436,
                           53.90155536011861
@@ -81,6 +87,7 @@ var studios = [
 		landmark: 'магазин "Сделай Сам"'
 	},
         {
+			id: 'kirava',
 		coords: [
 			27.55192458629608,
                         53.89188445293951
@@ -93,6 +100,7 @@ var studios = [
 		landmark: ''
 	},
         {
+			id: 'nezalezhnasci',
 		coords: [
 			27.55689203739166,
                         53.89992921114309
@@ -105,6 +113,7 @@ var studios = [
 		landmark: 'здание ГУМа, кафе "У Франциска", мемориальная доска Стефании Станюты'
 	},
         {
+			id: 'rakauskaja',
 		coords: [
 			27.54921555519104,
                         53.9051946070535
@@ -117,6 +126,7 @@ var studios = [
 		landmark: ''
 	},
         {
+			id: 'tanka',
 		coords: [
 			 27.535514831542965,
                          53.90772909283139
@@ -129,6 +139,7 @@ var studios = [
 		landmark: ''
 	},
         {
+			id: 'staravilenski',
 		coords: [
 			27.544972300529476,
                         53.928188957536584
