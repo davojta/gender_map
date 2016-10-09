@@ -60,3 +60,18 @@
     margin: 10px auto;
 }
 
+.studios-list-control {
+    width: 200px;
+    height: 600px;
+    background-color: floralwhite;
+}
+
+.start-line-icon img {
+    filter: sepia(60%);
+    zoom: 2;
+}
+.start-line-number {
+    zoom: 2;
+
+}
+
