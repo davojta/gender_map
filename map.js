@@ -25,7 +25,7 @@ L.NumberedDivIcon = L.Icon.extend({
 
           this.options.iconUrl= ' ./images/YELLOW.svg'
           this.options.iconSize = new L.Point(34, 55)
-          this.options.iconAnchor = new L.Point(17, 28),
+          this.options.iconAnchor = new L.Point(19, 56),
               numDivClass += ' start-line-number'
       }
 
@@ -155,19 +155,6 @@ var lineStarts = [
     },
     {
         coords: [
-            27.55192458629608,
-            53.89188445293951
-        ],
-        n: 'III',
-        address: 'ул. Кирова, 2',
-        studios: [
-            'kirava',
-            'nezalezhnasci',
-            'rakauskaja'
-        ]
-    },
-    {
-        coords: [
             27.578998804092407,
             53.909615636392466
         ],
@@ -177,6 +164,21 @@ var lineStarts = [
             'kazlova',
             'kisialiova',
             'pershamajaskaja'
+        ]
+    },
+    {
+        coords: [
+            27.55192458629608,
+            53.89188445293951
+        ],
+        n: 'III',
+        address: 'ул. Кирова, 2',
+        studios: [
+            'kirava',
+            'nezalezhnasci',
+            'rakauskaja',
+            'tanka',
+            'staravilenski'
         ]
     }
 ]
@@ -217,6 +219,8 @@ $(function() {
         .addTo(mymap);
 
 
+
+
     var studiosMarkers = studios.map((studio) => {
         var marker = L.marker([studio.coords[1], studio.coords[0]], {
             icon: new L.NumberedDivIcon({number: studio.n})
@@ -227,6 +231,7 @@ $(function() {
         //marker.addTo(mymap)
     })
     var studiosLayer = L.layerGroup(studiosMarkers)
+    window.lg = studiosLayer
 
     var linePolylines = lines.map(line => {
         return L.geoJSON(line, {
