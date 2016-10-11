@@ -19,7 +19,7 @@
 .artist-name {
     vertical-align: middle;
     text-align: center;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     display: inline-block;
 }
 
@@ -120,5 +120,9 @@
     top: 4px;
     padding-bottom: 0px;
     position: relative;
+}
+
+.leaflet-popup-content {
+    margin: 13px;
 }
 

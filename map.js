@@ -75,7 +75,7 @@ function getPlacePopup(place) {
     var artistsHtml = place.artists
         .map((artistId) => artists[artistId])
         .map((artist) => {
-            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/>&nbsp;<a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
+            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/>   <a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
         })
     return `
 <p>Художницы:</p>
@@ -211,7 +211,8 @@ $(function() {
                 number: lineStart.n,
                 size: 'big'
             })
-        }).bindPopup(getLineStartPopup(lineStart));
+        })
+        //.bindPopup(getLineStartPopup(lineStart));
 
         return marker
     })
