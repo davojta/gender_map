@@ -239,9 +239,10 @@ $(function() {
             style: function(feature) {
                 return {color: feature.properties.color};
             }
-        }).bindPopup(function(layer) {
-            return layer.feature.properties.description;
         })
+        //     .bindPopup(function(layer) {
+        //     return layer.feature.properties.description;
+        // })
     })
     var linesLayer = L.layerGroup(linePolylines);
     linesLayer.addTo(mymap)
