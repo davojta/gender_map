@@ -3,6 +3,10 @@
     height: 745px;
 }
 
+.images-list {
+    padding-top: 5px;
+}
+
 .artist {
     width: 200px;
     padding-bottom: 10px
