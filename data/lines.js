@@ -2,7 +2,7 @@ var lines = [
 	{
 		"type": "Feature",
 		"properties": {
-			color: '#F6AA1C',
+			color: '#348BCB',
 			n: 1,
 			description: ''
 		},
@@ -35,7 +35,7 @@ var lines = [
 	{
 		"type": "Feature",
 		"properties": {
-			color: '#F6AA1C',
+			color: '#348BCB',
 			n: 2,
 			description: ''
 		},
@@ -68,7 +68,7 @@ var lines = [
 	{
 		"type": "Feature",
 		"properties": {
-			color: '#F6AA1C',
+			color: '#348BCB',
 			n: 3,
 			description: ''
 		},
