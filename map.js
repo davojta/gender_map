@@ -56,7 +56,7 @@ artists = artists.reduce((hash, artist) => {
 
 function getStudioPhotoesHtml(artistId, photoes) {
     var html = photoes.map( photo => {
-        return `<img alt="" data-src="holder.js/140x140" class="img-rounded studio-photo" src="data/studio_photoes/${artistId}/small-${photo}" >`
+        return `<img alt="" data-src="holder.js/140x140" class="img-rounded studio-photo" src="data/studio_photoes/${artistId}/${photo}" >`
     }).join('')
 
     return html
@@ -75,7 +75,7 @@ function getPlacePopup(place) {
     var artistsHtml = place.artists
         .map((artistId) => artists[artistId])
         .map((artist) => {
-            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/><a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
+            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/>&nbsp;<a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
         })
     return `
 <p>Художницы:</p>
@@ -189,19 +189,19 @@ $(function() {
         center: [53.917356840722235, 27.563881874084476],
         zoom: 13
     })
-    const accessToken = 'pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ'
-
     var control = new PlacesList()
     control.addTo(mymap)
 
+    var tileUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+    var mapboxUrl = 'https://api.mapbox.com/styles/v1/dzianissheka/citdc4so800852hrzvz9actch/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ'
+
     L.tileLayer(
-        'https://api.mapbox.com/styles/v1/dzianissheka/citdc4so800852hrzvz9actch/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHppYW5pc3NoZWthIiwiYSI6ImNpcDhwYm05MDAwMTd4Zm03NGJxZndycTcifQ.IK-4u9dfYd_K3znDEOh9NQ',
+        tileUrl,
         {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             minZoom: 11,
             maxZoom: 19,
-            id: 'your.mapbox.project.id',
-            accessToken,
+            id: 'gender_map',
         }).addTo(mymap);
 
 
