@@ -3,10 +3,18 @@ gender routes map for minsk free travelling
 
 #todo
 ## features
-* [done]artists list with icons good formatted
-* [done] artist dialog with modal
-* [done] map panel with lines list
-* preload all data (images)
+* hash to control map (events)
+* links inside places list
+* mobile 
+ * dialog styles
+ * separate page for mobile
+ * places list as button
+ * menu button
+ * service workers for 
+
+## backlog
+* preload all data (images for map)
+* vector tiles
 
 Optional
 * switch between artists in artist view mode

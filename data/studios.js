@@ -1,4 +1,4 @@
-var studios = [
+module.exports = [
 	{
 		id: 'surhanava',
 		coords: [

@@ -1,4 +1,4 @@
-var lines = [
+module.exports = [
 	{
 		"type": "Feature",
 		"properties": {

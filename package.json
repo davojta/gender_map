@@ -1,0 +1,54 @@
+{
+  "name": "minsk_gender_art_map",
+  "version": "0.0.1",
+  "description": "Map for female art masterplaces excursions in Minsk",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "serve": "webpack-dev-server --progress --colors",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davojta/gender_map.git"
+  },
+  "keywords": [
+    "map",
+    "leaflet",
+    "gender",
+    "feminism"
+  ],
+  "author": "davojta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davojta/gender_map/issues"
+  },
+  "homepage": "https://github.com/davojta/gender_map#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-loader": "^1.3.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "imports-loader": "^0.6.5",
+    "jquery": "^3.1.1",
+    "leaflet": "^1.0.1",
+    "style-loader": "^0.13.1",
+    "svg-url-loader": "^1.1.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "bootstrap-sass": "^3.3.7",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^3.11.1",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  }
+}

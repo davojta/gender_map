@@ -1,9 +1,22 @@
-"use strict";
+var artists = require('./data/artists')
+var lines = require('./data/lines')
+var studios = require('./data/studios')
+var L = require('leaflet')
+require('leaflet_css')
+require('bootstrap-loader');
+
+var $ = require('jquery')
+
+
+require('./map.css')
+
+import yellowBigSvg from './images/YELLOW.svg'
+import holeSvg from './images/marker_hole.svg'
 
 L.NumberedDivIcon = L.Icon.extend({
       options: {
       // EDIT THIS TO POINT TO THE FILE AT http://www.charliecroom.com/marker_hole.png (or your own marker)
-      iconUrl: './images/marker_hole.svg',
+      iconUrl: holeSvg,
       number: '',
       shadowUrl: null,
       size: 'normal',
@@ -23,7 +36,7 @@ L.NumberedDivIcon = L.Icon.extend({
       var numDivClass = 'number';
       if (this.options.size === 'big') {
 
-          this.options.iconUrl= ' ./images/YELLOW.svg'
+          this.options.iconUrl= yellowBigSvg
           this.options.iconSize = new L.Point(34, 55)
           this.options.iconAnchor = new L.Point(19, 56),
               numDivClass += ' start-line-number'

@@ -1,6 +1,36 @@
+/*#map {*/
+    /*width: 815px;*/
+    /*height: 745px;*/
+/*}*/
+
+html {
+    height: 100%;
+    width: 100%;
+}
+.leaflet-fade-anim .leaflet-tile {
+    /*will-change: initial;*/
+}
+
+
+.content {
+    width: 100%;
+    min-width: 320px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
 #map {
-    width: 815px;
-    height: 745px;
+    min-height: 160px;
+    height: 100%;
+    background: rgb(173, 176, 157);
+    /* position: relative; */
+}
+
+
+body {
+    height: 100%;
+    min-height: 640px;
+    position: relative;
 }
 
 .images-list {
@@ -60,7 +90,7 @@
     opacity: 0.9;
 }
 
-#map .leaflet-div-icon {
+.leaflet-div-icon {
     background: transparent;
     border: none;
 }
@@ -96,7 +126,7 @@
     display: inline-block;
     height: 35px;
     width: 22px;
-    background-image: url(./images/YELLOW.svg);
+    background-image: url(images/YELLOW.svg);
     background-size: contain;
     background-repeat: no-repeat;
     padding-left: 1px;
@@ -129,4 +159,12 @@
 .leaflet-popup-content {
     margin: 13px;
 }
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+}
+
 

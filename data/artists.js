@@ -1,4 +1,4 @@
-var artists = [
+module.exports = [
     {
         id: 'm_shmatova',
         name: 'Марта Шматова',
