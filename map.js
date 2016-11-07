@@ -205,6 +205,54 @@ var lineStarts = [
 
 
 $(function() {
+    $('body').append(
+        `
+<div class="modal fade" id="artistModal" tabindex="-1" role="dialog" aria-labelledby="artistModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="artistModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="image-wrapper" >
+                            <img id="artistModalPhoto" src="" alt="Artist Photo" class="img-responsive img-circle">&nbsp;
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-8">
+                        <div id="artistText" class="artist-text">&nbsp;</div>
+
+                    </div>
+                </div>
+                <div class="row images-list">
+                    <div class="col-md-12">
+                        <div id="studioPhotoes" class="studio-photoes">
+                            &nbsp;
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+`
+    )
+
+
+
     var mymap = L.map('map', {
         center: [53.917356840722235, 27.563881874084476],
         zoom: 13
@@ -300,6 +348,8 @@ $(function() {
         var $this = $(this)
 
         showArtist($this.data('id'))
+
+
 
         return false
     })
