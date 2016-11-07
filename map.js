@@ -7,6 +7,13 @@ require('bootstrap-loader');
 
 var $ = require('jquery')
 
+var PATH = 'https://davojta.github.io/gender_map/'
+if (__PROD__) {
+    PATH = 'https://davojta.github.io/gender_map/'
+} else {
+    PATH = '.'
+}
+
 
 require('./map.css')
 
@@ -69,7 +76,7 @@ artists = artists.reduce((hash, artist) => {
 
 function getStudioPhotoesHtml(artistId, photoes) {
     var html = photoes.map( photo => {
-        return `<img alt="" data-src="holder.js/140x140" class="img-rounded studio-photo" src="data/studio_photoes/${artistId}/${photo}" >`
+        return `<img alt="" data-src="holder.js/140x140" class="img-rounded studio-photo" src="${PATH}/data/studio_photoes/${artistId}/${photo}" >`
     }).join('')
 
     return html
@@ -81,14 +88,14 @@ function showArtist(artistId) {
 
     $('#artistModalLabel').text(artist.name)
     $('#artistText').text(artist.text)
-    $('#artistModalPhoto').attr('src', `data/${artist.photo}`)
+    $('#artistModalPhoto').attr('src', `${PATH}/data/${artist.photo}`)
     $('#studioPhotoes').html(getStudioPhotoesHtml(artistId, artist.studio_photoes))
 }
 function getPlacePopup(place) {
     var artistsHtml = place.artists
         .map((artistId) => artists[artistId])
         .map((artist) => {
-            return `<li class="artist"><img src="data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/>   <a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
+            return `<li class="artist"><img src="${PATH}/data/${artist.photo}" class="img-responsive img-circle artist-photo" alt="${artist.name}'s photo"/>   <a href="#${artist.id}" data-id="${artist.id}"  class="artist-name js-artist-link">${artist.name} </a></li>`
         })
     return `
 <p>Художницы:</p>
@@ -212,8 +219,8 @@ $(function() {
         tileUrl,
         {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            minZoom: 11,
-            maxZoom: 19,
+            minZoom: 12,
+            maxZoom: 15,
             id: 'gender_map',
         }).addTo(mymap);
 
