@@ -1,3 +1,5 @@
+var $ = require('jquery')
+
 var artists = require('./data/artists')
 var lines = require('./data/lines')
 var studios = require('./data/studios')
