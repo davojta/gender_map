@@ -119,7 +119,7 @@ function getLinesListHtml(lineStarts) {
         })
 
         var studiosHtml = fullStudios.map(studio => {
-            return `<li>${studio.address}</li>`
+            return `<li><a href="#">${studio.address}</a></li>`
         }).join('')
 
         return `
