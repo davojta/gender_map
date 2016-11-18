@@ -70,7 +70,7 @@ L.NumberedDivIcon = L.Icon.extend({
 });
 
 artists = artists.reduce((hash, artist) => {
-    if (artist.text.length === 0) artist.text = 'Нету информации о художнице'
+    if (artist.text.length === 0) artist.text = 'Нет информации о художнице'
     if (!artist.studio_photoes) artist.studio_photoes = []
     hash[artist.id] = artist
     return hash
@@ -119,7 +119,7 @@ function getLinesListHtml(lineStarts) {
         })
 
         var studiosHtml = fullStudios.map(studio => {
-            return `<li><a href="#">${studio.address}</a></li>`
+            return `<li><a href="#${studio.id}">${studio.address}</a></li>`
         }).join('')
 
         return `
@@ -294,7 +294,8 @@ $(function() {
 
     var studiosMarkers = studios.map((studio) => {
         var marker = L.marker([studio.coords[1], studio.coords[0]], {
-            icon: new L.NumberedDivIcon({number: studio.n})
+            icon: new L.NumberedDivIcon({number: studio.n}),
+            studioId: studio.id
         }).bindPopup(getPlacePopup(studio));
 
         return marker
@@ -355,6 +356,20 @@ $(function() {
 
         return false
     })
+
+    window.addEventListener("hashchange", function(){
+        openStudioPopup(location.hash.substr(1));
+    })
+
+
+    function openStudioPopup(studioId){
+        for (var i in studiosMarkers){
+            var markerID = studiosMarkers[i].options.studioId;
+            if (markerID == studioId){
+                studiosMarkers[i].openPopup();
+            }
+        }
+    }
 
     window.map = mymap
 
