@@ -363,12 +363,23 @@ $(function() {
 
 
     function openStudioPopup(studioId){
-        for (var i in studiosMarkers){
-            var markerID = studiosMarkers[i].options.studioId;
-            if (markerID == studioId){
-                studiosMarkers[i].openPopup();
+        for (var b in studios) {
+            if (studios[b].id == studioId) {
+                var studioCoordinates = studios[b].coords
+                mymap.setView([studioCoordinates[1], studioCoordinates[0]], 14)
+                break
             }
         }
+
+        setTimeout(function() {
+            for (var i in studiosMarkers) {
+                var markerID = studiosMarkers[i].options.studioId
+                if (markerID == studioId) {
+                    studiosMarkers[i].openPopup()
+                    break
+                }
+            }
+        }, 300)
     }
 
     window.map = mymap
